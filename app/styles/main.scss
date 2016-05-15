@@ -1,0 +1,192 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+//vars
+$water: #a7cdf2;
+
+body {
+  padding: 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+
+  /* Make the masthead heading the same height as the navigation */
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+  }
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+#map {
+  background: $water;
+  margin-bottom: 20px;
+}
+
+.route-select {
+  margin-bottom: 10px;
+}
+
+/* Responsive: small phones*/
+@media screen and (max-width: 374px){
+  #map {
+    height: 280px;
+    width: 280px;
+  }
+}
+
+/* Responsive: big phones to 599px*/
+@media screen and (min-width: 375px) and (max-width: 599px) {
+  #map {
+    height: 320px;
+    width: 320px;
+  }
+
+  .route-select {
+    max-width: 320px;
+  }
+}
+
+/* Responsive: 599px to tablets*/
+@media screen and (min-width: 599px) and (max-width: 767px) {
+  #map {
+    height: 500px;
+    width: 500px;
+  }
+
+  .route-select {
+    max-width: 500px;
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 1100px;
+  }
+
+  #map {
+    height: 580px;
+    width: 700px;
+  }
+
+  .route-select {
+    max-width: 700px;
+  }
+
+  .header,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .header {
+    margin-bottom: 30px;
+  }
+}
+
+
+//custom
+
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+svg {
+  background: $water;
+}
+
+.neighborhood {
+  fill: #aaa;
+}
+
+.artery {
+  stroke: #ffffff;
+  stroke-width: 2;
+  fill:  transparent;
+}
+
+.freeway {
+  stroke: #f18d00;
+  stroke-width: 3;
+  fill:  transparent;
+}
+
+.street {
+  stroke: #ffffcc;
+  fill:  transparent;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #eee;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+.routebg {
+  opacity: .5;
+}
+
+.scrollable {
+    max-height: 300px;
+    overflow: scroll;
+}
+
+.bus {
+    height: 20px;
+    width: 20px;
+    stroke: #000;
+}
+
+.bus.active {
+   stroke: #00ccff ;
+}

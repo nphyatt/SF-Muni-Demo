@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-9">
+    <select ng-model="main.addRoute" class="form-control route-select center-block"
+      ng-options="route as route.title for route in main.routes | orderBy : '-id' : '-title' | filter : main.watchFilter"
+      ng-change="main.watch()">
+      <option value="">Select a Route to watch</option>
+    </select>
+    <div id="map" class="center-block">
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="panel panel-default route-select center-block">
+      <div class="panel-heading">
+        <h3 class="panel-title">Watching</h3>
+      </div>
+      <div class="panel-body scrollable">
+        <ul class="list-group">
+          <li class="list-group-item" ng-show="main.Routes.watching.length === 0">All Routes</li>
+          <li class="list-group-item" ng-show="main.Routes.watching.length > 0">
+              Clear All
+              <button style="color: red;" class="btn btn-xs btn-default pull-right" ng-click="main.Routes.unwatchAll()">
+                <span class="glyphicon glyphicon-remove"></span>
+              </button>
+          </li>
+          <li class="list-group-item" ng-repeat="route in main.Routes.watching track by $index"
+           ng-style="{'color': route.color}">
+            {{route.title}}
+            <button style="color: red;" class="btn btn-xs btn-default pull-right" ng-click="main.Routes.unwatch(route)">
+              <span class="glyphicon glyphicon-remove"></span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
