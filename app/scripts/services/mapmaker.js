@@ -12,7 +12,12 @@ angular.module('eyesOnSfApp')
 
     var self = this;
 
-    //An object to hold info/methods for the map
+    /**
+     * The Map object is for interaction with the map.
+     * It stores references to neccessary map items and
+     * provides methods for drawing the map as well as
+     * adding and hiding certain elements.
+     */
     var Map = {
       //set at draw time path function for translations
       geoPath: null,
@@ -151,11 +156,14 @@ angular.module('eyesOnSfApp')
       }
     };
 
-    //only function that need to be public
+    //drawMap is the only function that needs to be public
     this.drawMap = Map.draw;
 
-    //a set of functions that can be used to create new tooltips for vehicles
-    //and show and hide them
+    /**
+     * The busTip object is a set of functions that can be 
+     * used to create new tooltips for vehicles and access
+     * functions that and show and hide them.
+     */
     var busTip = {
       create: function(d){
         d.properties.tip = d3.tip()
@@ -190,8 +198,11 @@ angular.module('eyesOnSfApp')
       }
     };
 
-    //An object which will hold all the zoom
-    //API and neccessary logic
+    /**
+     * The Zoom object  holds all the zoom related 
+     * API and neccessary logic for executing zoom 
+     * behaviors.
+     */
     var Zoom = {
       behavior: null, //will be set to our zoom behavior when the map is inited
 
@@ -256,7 +267,11 @@ angular.module('eyesOnSfApp')
       },
     };
 
-    //An object for interaction with vehicle points
+    /**
+     * Vehicles is an object for interaction with vehicle points.
+     * It includes the functions to plot, filter,update and follow
+     * vehicle points ont he map.
+     */
     var Vehicles = {
 
       map: null, //set this to the g that'll hold the vehicles
@@ -378,10 +393,14 @@ angular.module('eyesOnSfApp')
       following: d3.select(null),
     };
 
-    //only this method needs to be public
+    //plotVehicle is the only method that needs to be public
     this.plotVehicle = Vehicles.plot;
 
-    //The API object for watching/unwatching routes
+    /**
+     * The Routes object exposes the 
+     * API for watching/unwatching routes and
+     * holds the neccessary references associated with routes.
+     */
     this.Routes = {
 
       map: null, //set by drawMap
